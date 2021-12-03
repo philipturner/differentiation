@@ -24,9 +24,6 @@ let package = Package(
         .target(
             name: "Differentiation",
             dependencies: ["_Differentiation"],
-            resources: [
-                
-            ],
             swiftSettings: [.unsafeFlags(["-parse-stdlib"])]),
         .testTarget(
             name: "DifferentiationTests",
