@@ -13,6 +13,6 @@ struct Example: Differentiable {
 
 @differentiable(reverse)
 func foo(...) {
-    
+    ...
 }
 ```
