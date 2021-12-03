@@ -24,7 +24,7 @@ let package = Package(
         .target(
             name: "Differentiation",
             dependencies: ["_Differentiation"],
-            swiftSettings: [.unsafeFlags(["-parse-stdlib", "-Xfrontend", "-enable-experimental-forward-mode-differentiation"])]),
+            swiftSettings: [.unsafeFlags(["-parse-stdlib", "-enable-experimental-forward-mode-differentiation"])]),
         .testTarget(
             name: "DifferentiationTests",
             dependencies: ["Differentiation"]),
