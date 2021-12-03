@@ -6,4 +6,13 @@ A workaround for enabling differentiation in Swift until the standard library of
 
 ```swift
 import Differentiation
+
+struct Example: Differentiable {
+    ...
+}
+
+@differentiable(reverse)
+func foo(...) {
+    
+}
 ```
