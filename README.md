@@ -8,11 +8,11 @@ A workaround for enabling differentiation in Swift until the standard library of
 import Differentiation
 
 struct Example: Differentiable {
-    ...
+    var x: Float
 }
 
 @differentiable(reverse)
-func foo(...) {
+func foo(x: Float) -> Float {
     ...
 }
 ```
