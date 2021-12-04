@@ -18,3 +18,7 @@ func foo(x: Float) -> Float {
     ...
 }
 ```
+
+## Demonstration
+
+This package was been used in an iOS [sample project](https://github.com/philipturner/differentiation-ios-demo) to find velocity from physics equations.
