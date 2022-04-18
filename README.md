@@ -2,7 +2,7 @@
 
 A workaround for enabling differentiation in Swift until the standard library officially supports it. This is not needed in Swift development builds, and it may not reflect the most recent commits to the standard library.
 
-> Warning: Swift's current implementation of differentiation is still experimental. Bug fixes implemented in development toolchains may take weeks to integrate into release toolchains.
+> Warning: Swift's implementation of differentiation is still experimental. Bug fixes implemented in development toolchains may take months to integrate into release toolchains.
 
 ## How to Use
 
