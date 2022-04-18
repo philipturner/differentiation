@@ -1,6 +1,6 @@
 # Differentiation
 
-A workaround for enabling differentiation in Swift until the standard library officially supports it. This is not needed in Swift development builds, and it may not reflect the most recent commits to the standard library.
+A workaround for enabling differentiation in Swift until the standard library officially supports it. This only compiles with Swift release toolchains, and it may not reflect the most recent commits to the standard library.
 
 > Warning: Swift's implementation of differentiation is still experimental. Bug fixes implemented in development toolchains may take months to integrate into release toolchains.
 
@@ -29,8 +29,8 @@ To synchronize this package with the code in the [apple/swift](https://github.co
 1. Locate [swift/stdlib/public/Differentiation](https://github.com/apple/swift/tree/main/stdlib/public/Differentiation) in the Swift GitHub repository.
 2. Copy files ending with `.gyb` into "Sources/gyb-sources".
 3. Copy all other Swift files into their counterparts in "Sources/Differentiation", except for the following:
-  - Differentiable.swift
-  - DifferentiationUtilities.swift
+- Differentiable.swift
+- DifferentiationUtilities.swift
 4. Enter this package's directory in the command line and run `build_gyb.sh`.
 
 <!-- TODO: How to update tests -->
