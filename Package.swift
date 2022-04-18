@@ -4,29 +4,31 @@
 import PackageDescription
 
 let package = Package(
-    name: "_Differentiation",
-    products: [
-        // Products define the executables and libraries a package produces, and make them visible to other packages.
-        .library(
-            name: "_Differentiation",
-            targets: ["Differentiation"]),
-    ],
-    dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
-    ],
-    targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages this package depends on.
-        .target(
-            name: "_Differentiation",
-            dependencies: []),
-        .target(
-            name: "Differentiation",
-            dependencies: ["_Differentiation"],
-            swiftSettings: [.unsafeFlags(["-parse-stdlib"])]),
-        .testTarget(
-            name: "DifferentiationTests",
-            dependencies: ["Differentiation"]),
-    ]
+  name: "_Differentiation",
+  products: [
+    // Products define the executables and libraries a package produces, and make them visible to other packages.
+    .library(
+      name: "_Differentiation",
+      targets: ["Differentiation"]),
+  ],
+  dependencies: [
+    // Dependencies declare other packages that this package depends on.
+    // .package(url: /* package url */, from: "1.0.0"),
+  ],
+  targets: [
+    // Targets are the basic building blocks of a package. A target can define a module or a test suite.
+    // Targets can depend on other targets in this package, and on products in packages this package depends on.
+    .target(
+      name: "_Differentiation",
+      dependencies: []),
+    .target(
+      name: "Differentiation",
+      dependencies: ["_Differentiation"],
+      swiftSettings: [.unsafeFlags(["-parse-stdlib"])]),
+    // TODO: Make a separate module with each test for the specific compiler flags it needs
+    // TODO: Allow more tests that make the compiler unhappy
+    .testTarget(
+      name: "DifferentiationTests",
+      dependencies: ["Differentiation"]),
+  ]
 )

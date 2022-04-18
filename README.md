@@ -1,6 +1,6 @@
 # Differentiation
 
-A workaround for enabling differentiation in Swift until the standard library officially supports it. This only compiles with Swift release toolchains, and it may not reflect the most recent commits to the standard library.
+A workaround for enabling differentiation in Swift until the Standard Library officially supports it. This only compiles with Swift release toolchains, and may not reflect the most recent commits to [apple/swift](https://github.com/apple/swift/tree/main/stdlib/public/Differentiation).
 
 > Warning: Swift's implementation of differentiation is still experimental. Bug fixes implemented in development toolchains may take months to integrate into release toolchains.
 
@@ -47,4 +47,6 @@ To synchronize this package with the code in the [apple/swift](https://github.co
 - DifferentiationUtilities.swift
 4. Enter this package's directory in the command line and run `build_gyb.sh`.
 
-<!-- TODO: How to update tests -->
+## Running Package Tests
+
+To determine whether a release toolchain has certain bug fixes integrated into recent development toolchain, this package includes most AutoDiff compiler crasher tests. These produce errors and warnings in Xcode, which are intentional. The tests are considered successful if they do not crash the compiler.
