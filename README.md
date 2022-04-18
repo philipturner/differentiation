@@ -23,7 +23,19 @@ func foo(x: Float) -> Float {
 
 This package was been used in an iOS [sample project](https://github.com/philipturner/differentiation-ios-demo) to find velocity from physics equations.
 
-## How to Maintain
+## Compatibility with Development Toolchains
+
+To create differentiation code that compiles with and without Swift release toolchains, optionally depend on the Differentiation package if compiling with a release toolchain. In addition, use this import guard at the top of your source files:
+
+```swift
+#if canImport(Differentiation)
+import Differentiation
+#else
+import _Differentiation
+#endif
+```
+
+## How to Update
 
 To synchronize this package with the code in the [apple/swift](https://github.com/apple/swift) repository, follow these steps:
 1. Locate [swift/stdlib/public/Differentiation](https://github.com/apple/swift/tree/main/stdlib/public/Differentiation) in the Swift GitHub repository.
