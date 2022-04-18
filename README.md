@@ -21,11 +21,11 @@ func foo(x: Float) -> Float {
 
 ## Demonstration
 
-This package was been used in an iOS [sample project](https://github.com/philipturner/differentiation-ios-demo) to find velocity from physics equations.
+This package was used in an iOS [sample project](https://github.com/philipturner/differentiation-ios-demo) to find velocity from physics equations.
 
 ## Compatibility with Development Toolchains
 
-To create differentiation code that compiles with and without Swift release toolchains, optionally depend on the Differentiation package if compiling with a release toolchain. In addition, use this import guard at the top of your source files:
+To create differentiation code that compiles with and without Swift release toolchains, optionally depend on this package if compiling with a release toolchain. In addition, use this import guard at the top of your source files:
 
 ```swift
 #if canImport(Differentiation)
@@ -34,6 +34,8 @@ import Differentiation
 import _Differentiation
 #endif
 ```
+
+> Note: When officially enabled in release toolchains, the built-in `_Differentiation` module will be renamed to `Differentiation`. If the compiler wants you to use the new module name, this guard could protect your code against deprecation warnings.
 
 ## How to Update
 
