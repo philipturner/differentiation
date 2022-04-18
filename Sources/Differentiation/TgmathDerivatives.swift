@@ -1,3 +1,4 @@
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 1)
 //===--- TgmathDerivatives.swift.gyb --------------------------*- swift -*-===//
 //
 // This source file is part of the Swift.org open source project
@@ -18,13 +19,16 @@ import Swift
   import Darwin.C.tgmath
 #elseif os(Linux) || os(FreeBSD) || os(OpenBSD) || os(PS4) || os(Android) || os(Cygwin) || os(Haiku)
   import Glibc
+#elseif os(WASI)
+  import WASILibc
 #elseif os(Windows)
   import CRT
 #else
 #error("Unsupported platform")
 #endif
 
-@usableFromInline
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 32)
+@inlinable
 @derivative(of: fma)
 func _jvpFma<T: FloatingPoint & Differentiable> (
   _ x: T,
@@ -34,7 +38,7 @@ func _jvpFma<T: FloatingPoint & Differentiable> (
   return (fma(x, y, z), { (dx, dy, dz) in dx * y + dy * x + dz })
 }
 
-@usableFromInline
+@inlinable
 @derivative(of: fma)
 func _vjpFma<T: FloatingPoint & Differentiable> (
   _ x: T,
@@ -44,7 +48,7 @@ func _vjpFma<T: FloatingPoint & Differentiable> (
   return (fma(x, y, z), { v in (v * y, v * x, v) })
 }
 
-@usableFromInline
+@inlinable
 @derivative(of: remainder)
 func _jvpRemainder<T: FloatingPoint & Differentiable> (
   _ x: T,
@@ -56,7 +60,7 @@ func _jvpRemainder<T: FloatingPoint & Differentiable> (
     """)
 }
 
-@usableFromInline
+@inlinable
 @derivative(of: remainder)
 func _vjpRemainder<T: FloatingPoint & Differentiable> (
   _ x: T,
@@ -65,7 +69,7 @@ func _vjpRemainder<T: FloatingPoint & Differentiable> (
   return (remainder(x, y), { v in (v, -v * ((x / y).rounded(.toNearestOrEven))) })
 }
 
-@usableFromInline
+@inlinable
 @derivative(of: fmod)
 func _jvpFmod<T: FloatingPoint & Differentiable> (
   _ x: T,
@@ -77,7 +81,7 @@ func _jvpFmod<T: FloatingPoint & Differentiable> (
     """)
 }
 
-@usableFromInline
+@inlinable
 @derivative(of: fmod)
 func _vjpFmod<T: FloatingPoint & Differentiable> (
   _ x: T,
@@ -86,7 +90,8 @@ func _vjpFmod<T: FloatingPoint & Differentiable> (
   return (fmod(x, y), { v in (v, -v * ((x / y).rounded(.towardZero))) })
 }
 
-@usableFromInline
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 96)
+@inlinable
 @derivative(of: sqrt)
 func _jvpSqrt<T: FloatingPoint & Differentiable> (
   _ x: T
@@ -95,7 +100,7 @@ func _jvpSqrt<T: FloatingPoint & Differentiable> (
   return (value, { v in v / (2 * value) })
 }
 
-@usableFromInline
+@inlinable
 @derivative(of: ceil)
 func _jvpCeil<T: FloatingPoint & Differentiable> (
   _ x: T
@@ -103,7 +108,7 @@ func _jvpCeil<T: FloatingPoint & Differentiable> (
   return (ceil(x), { v in 0 })
 }
 
-@usableFromInline
+@inlinable
 @derivative(of: floor)
 func _jvpFloor<T: FloatingPoint & Differentiable> (
   _ x: T
@@ -111,7 +116,7 @@ func _jvpFloor<T: FloatingPoint & Differentiable> (
   return (floor(x), { v in 0 })
 }
 
-@usableFromInline
+@inlinable
 @derivative(of: round)
 func _jvpRound<T: FloatingPoint & Differentiable> (
   _ x: T
@@ -119,14 +124,15 @@ func _jvpRound<T: FloatingPoint & Differentiable> (
   return (round(x), { v in 0 })
 }
 
-@usableFromInline
+@inlinable
 @derivative(of: trunc)
 func _jvpTrunc<T: FloatingPoint & Differentiable> (
   _ x: T
 ) -> (value: T, differential: (T) -> T) where T == T.TangentVector {
   return (trunc(x), { v in 0 })
 }
-@usableFromInline
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 96)
+@inlinable
 @derivative(of: sqrt)
 func _vjpSqrt<T: FloatingPoint & Differentiable> (
   _ x: T
@@ -135,7 +141,7 @@ func _vjpSqrt<T: FloatingPoint & Differentiable> (
   return (value, { v in v / (2 * value) })
 }
 
-@usableFromInline
+@inlinable
 @derivative(of: ceil)
 func _vjpCeil<T: FloatingPoint & Differentiable> (
   _ x: T
@@ -143,7 +149,7 @@ func _vjpCeil<T: FloatingPoint & Differentiable> (
   return (ceil(x), { v in 0 })
 }
 
-@usableFromInline
+@inlinable
 @derivative(of: floor)
 func _vjpFloor<T: FloatingPoint & Differentiable> (
   _ x: T
@@ -151,7 +157,7 @@ func _vjpFloor<T: FloatingPoint & Differentiable> (
   return (floor(x), { v in 0 })
 }
 
-@usableFromInline
+@inlinable
 @derivative(of: round)
 func _vjpRound<T: FloatingPoint & Differentiable> (
   _ x: T
@@ -159,15 +165,162 @@ func _vjpRound<T: FloatingPoint & Differentiable> (
   return (round(x), { v in 0 })
 }
 
-@usableFromInline
+@inlinable
 @derivative(of: trunc)
 func _vjpTrunc<T: FloatingPoint & Differentiable> (
   _ x: T
 ) -> (value: T, pullback: (T) -> T) where T == T.TangentVector {
   return (trunc(x), { v in 0 })
 }
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 32)
+@inlinable
+@derivative(of: fma)
+func _jvpFma (
+  _ x: Double,
+  _ y: Double,
+  _ z: Double
+) -> (value: Double, differential: (Double, Double, Double) -> Double)  {
+  return (fma(x, y, z), { (dx, dy, dz) in dx * y + dy * x + dz })
+}
+
+@inlinable
+@derivative(of: fma)
+func _vjpFma (
+  _ x: Double,
+  _ y: Double,
+  _ z: Double
+) -> (value: Double, pullback: (Double) -> (Double, Double, Double))  {
+  return (fma(x, y, z), { v in (v * y, v * x, v) })
+}
+
+@inlinable
+@derivative(of: remainder)
+func _jvpRemainder (
+  _ x: Double,
+  _ y: Double
+) -> (value: Double, differential: (Double, Double) -> Double)  {
+  fatalError("""
+    Unimplemented JVP for 'remainder(_:)'. \
+    https://bugs.swift.org/browse/TF-1108 tracks this issue
+    """)
+}
+
+@inlinable
+@derivative(of: remainder)
+func _vjpRemainder (
+  _ x: Double,
+  _ y: Double
+) -> (value: Double, pullback: (Double) -> (Double, Double))  {
+  return (remainder(x, y), { v in (v, -v * ((x / y).rounded(.toNearestOrEven))) })
+}
+
+@inlinable
+@derivative(of: fmod)
+func _jvpFmod (
+  _ x: Double,
+  _ y: Double
+) -> (value: Double, differential: (Double, Double) -> Double)  {
+  fatalError("""
+    Unimplemented JVP for 'fmod(_:)'. \
+    https://bugs.swift.org/browse/TF-1108 tracks this issue
+    """)
+}
+
+@inlinable
+@derivative(of: fmod)
+func _vjpFmod (
+  _ x: Double,
+  _ y: Double
+) -> (value: Double, pullback: (Double) -> (Double, Double))  {
+  return (fmod(x, y), { v in (v, -v * ((x / y).rounded(.towardZero))) })
+}
+
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 96)
+@inlinable
+@derivative(of: sqrt)
+func _jvpSqrt (
+  _ x: Double
+) -> (value: Double, differential: (Double) -> Double)  {
+  let value = sqrt(x)
+  return (value, { v in v / (2 * value) })
+}
+
+@inlinable
+@derivative(of: ceil)
+func _jvpCeil (
+  _ x: Double
+) -> (value: Double, differential: (Double) -> Double)  {
+  return (ceil(x), { v in 0 })
+}
+
+@inlinable
+@derivative(of: floor)
+func _jvpFloor (
+  _ x: Double
+) -> (value: Double, differential: (Double) -> Double)  {
+  return (floor(x), { v in 0 })
+}
+
+@inlinable
+@derivative(of: round)
+func _jvpRound (
+  _ x: Double
+) -> (value: Double, differential: (Double) -> Double)  {
+  return (round(x), { v in 0 })
+}
+
+@inlinable
+@derivative(of: trunc)
+func _jvpTrunc (
+  _ x: Double
+) -> (value: Double, differential: (Double) -> Double)  {
+  return (trunc(x), { v in 0 })
+}
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 96)
+@inlinable
+@derivative(of: sqrt)
+func _vjpSqrt (
+  _ x: Double
+) -> (value: Double, pullback: (Double) -> Double)  {
+  let value = sqrt(x)
+  return (value, { v in v / (2 * value) })
+}
+
+@inlinable
+@derivative(of: ceil)
+func _vjpCeil (
+  _ x: Double
+) -> (value: Double, pullback: (Double) -> Double)  {
+  return (ceil(x), { v in 0 })
+}
+
+@inlinable
+@derivative(of: floor)
+func _vjpFloor (
+  _ x: Double
+) -> (value: Double, pullback: (Double) -> Double)  {
+  return (floor(x), { v in 0 })
+}
+
+@inlinable
+@derivative(of: round)
+func _vjpRound (
+  _ x: Double
+) -> (value: Double, pullback: (Double) -> Double)  {
+  return (round(x), { v in 0 })
+}
+
+@inlinable
+@derivative(of: trunc)
+func _vjpTrunc (
+  _ x: Double
+) -> (value: Double, pullback: (Double) -> Double)  {
+  return (trunc(x), { v in 0 })
+}
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 138)
 
 // Unary functions
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 146)
 @inlinable
 @derivative(of: exp)
 func _jvpExp(_ x: Float) -> (value: Float, differential: (Float) -> Float) {
@@ -298,6 +451,7 @@ func _jvpErfc(_ x: Float) -> (value: Float, differential: (Float) -> Float) {
   return (erfc(x), { v in v * -Float(M_2_SQRTPI) * exp(-x * x) })
 }
 
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 146)
 @inlinable
 @derivative(of: exp)
 func _jvpExp(_ x: Double) -> (value: Double, differential: (Double) -> Double) {
@@ -428,7 +582,9 @@ func _jvpErfc(_ x: Double) -> (value: Double, differential: (Double) -> Double) 
   return (erfc(x), { v in v * -Double(M_2_SQRTPI) * exp(-x * x) })
 }
 
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 144)
 #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 146)
 @inlinable
 @derivative(of: exp)
 func _jvpExp(_ x: Float80) -> (value: Float80, differential: (Float80) -> Float80) {
@@ -559,7 +715,9 @@ func _jvpErfc(_ x: Float80) -> (value: Float80, differential: (Float80) -> Float
   return (erfc(x), { v in v * -Float80(M_2_SQRTPI) * exp(-x * x) })
 }
 
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 277)
 #endif
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 146)
 @inlinable
 @derivative(of: exp)
 func _vjpExp(_ x: Float) -> (value: Float, pullback: (Float) -> Float) {
@@ -690,6 +848,7 @@ func _vjpErfc(_ x: Float) -> (value: Float, pullback: (Float) -> Float) {
   return (erfc(x), { v in v * -Float(M_2_SQRTPI) * exp(-x * x) })
 }
 
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 146)
 @inlinable
 @derivative(of: exp)
 func _vjpExp(_ x: Double) -> (value: Double, pullback: (Double) -> Double) {
@@ -820,7 +979,9 @@ func _vjpErfc(_ x: Double) -> (value: Double, pullback: (Double) -> Double) {
   return (erfc(x), { v in v * -Double(M_2_SQRTPI) * exp(-x * x) })
 }
 
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 144)
 #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 146)
 @inlinable
 @derivative(of: exp)
 func _vjpExp(_ x: Float80) -> (value: Float80, pullback: (Float80) -> Float80) {
@@ -951,9 +1112,12 @@ func _vjpErfc(_ x: Float80) -> (value: Float80, pullback: (Float80) -> Float80) 
   return (erfc(x), { v in v * -Float80(M_2_SQRTPI) * exp(-x * x) })
 }
 
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 277)
 #endif
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 281)
 
 // Binary functions
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 287)
 @inlinable
 @derivative(of: pow)
 func _vjpPow(_ x: Float, _ y: Float) -> (value: Float, pullback: (Float) -> (Float, Float)) {
@@ -971,7 +1135,27 @@ func _jvpPow(_ x: Float, _ y: Float) -> (value: Float, differential: (Float, Flo
     dx * y * pow(x, y - 1) + dy * value * log(x.isLessThanOrEqualTo(0) ? Float(1) : x)
   })
 }
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 287)
+@inlinable
+@derivative(of: pow)
+func _vjpPow(_ x: Double, _ y: Double) -> (value: Double, pullback: (Double) -> (Double, Double)) {
+  let value = pow(x, y)
+  return (value, { v in (
+    v * y * pow(x, y - 1), v * value * log(x.isLessThanOrEqualTo(0) ? Double(1) : x)
+  ) })
+}
+
+@inlinable
+@derivative(of: pow)
+func _jvpPow(_ x: Double, _ y: Double) -> (value: Double, differential: (Double, Double) -> Double) {
+  let value = pow(x, y)
+  return (value, { (dx, dy) in
+    dx * y * pow(x, y - 1) + dy * value * log(x.isLessThanOrEqualTo(0) ? Double(1) : x)
+  })
+}
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 285)
 #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 287)
 @inlinable
 @derivative(of: pow)
 func _vjpPow(_ x: Float80, _ y: Float80) -> (value: Float80, pullback: (Float80) -> (Float80, Float80)) {
@@ -989,4 +1173,5 @@ func _jvpPow(_ x: Float80, _ y: Float80) -> (value: Float80, differential: (Floa
     dx * y * pow(x, y - 1) + dy * value * log(x.isLessThanOrEqualTo(0) ? Float80(1) : x)
   })
 }
+#sourceLocation(file: "../gyb-sources/TgmathDerivatives.swift.gyb", line: 305)
 #endif

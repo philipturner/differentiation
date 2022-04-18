@@ -1,3 +1,4 @@
+#sourceLocation(file: "../gyb-sources/SIMDDifferentiation.swift.gyb", line: 1)
 //===--- SIMDDifferentiation.swift.gyb ------------------------*- swift -*-===//
 //
 // This source file is part of the Swift.org open source project
@@ -12,7 +13,9 @@
 
 import Swift
 
+#sourceLocation(file: "../gyb-sources/SIMDDifferentiation.swift.gyb", line: 19)
 
+#sourceLocation(file: "../gyb-sources/SIMDDifferentiation.swift.gyb", line: 21)
 
 //===----------------------------------------------------------------------===//
 // Protocol conformances
@@ -74,6 +77,7 @@ where
   }
 }
 
+#sourceLocation(file: "../gyb-sources/SIMDDifferentiation.swift.gyb", line: 21)
 
 //===----------------------------------------------------------------------===//
 // Protocol conformances
@@ -135,6 +139,7 @@ where
   }
 }
 
+#sourceLocation(file: "../gyb-sources/SIMDDifferentiation.swift.gyb", line: 21)
 
 //===----------------------------------------------------------------------===//
 // Protocol conformances
@@ -196,6 +201,7 @@ where
   }
 }
 
+#sourceLocation(file: "../gyb-sources/SIMDDifferentiation.swift.gyb", line: 21)
 
 //===----------------------------------------------------------------------===//
 // Protocol conformances
@@ -257,6 +263,7 @@ where
   }
 }
 
+#sourceLocation(file: "../gyb-sources/SIMDDifferentiation.swift.gyb", line: 21)
 
 //===----------------------------------------------------------------------===//
 // Protocol conformances
@@ -318,6 +325,7 @@ where
   }
 }
 
+#sourceLocation(file: "../gyb-sources/SIMDDifferentiation.swift.gyb", line: 21)
 
 //===----------------------------------------------------------------------===//
 // Protocol conformances
@@ -379,6 +387,7 @@ where
   }
 }
 
+#sourceLocation(file: "../gyb-sources/SIMDDifferentiation.swift.gyb", line: 21)
 
 //===----------------------------------------------------------------------===//
 // Protocol conformances
@@ -440,6 +449,7 @@ where
   }
 }
 
+#sourceLocation(file: "../gyb-sources/SIMDDifferentiation.swift.gyb", line: 83)
 
 extension SIMD
 where
