@@ -1,3 +1,4 @@
+#sourceLocation(file: "../gyb-sources/FloatingPointDifferentiation.swift.gyb", line: 1)
 //===--- FloatingPointDifferentiation.swift.gyb ---------------*- swift -*-===//
 //
 // This source file is part of the Swift.org open source project
@@ -13,8 +14,11 @@
 import Swift
 import SwiftShims
 
+#sourceLocation(file: "../gyb-sources/FloatingPointDifferentiation.swift.gyb", line: 27)
 
+#sourceLocation(file: "../gyb-sources/FloatingPointDifferentiation.swift.gyb", line: 32)
 #if !os(macOS) && !(os(iOS) && targetEnvironment(macCatalyst))
+#sourceLocation(file: "../gyb-sources/FloatingPointDifferentiation.swift.gyb", line: 34)
 
 //===----------------------------------------------------------------------===//
 // Protocol conformances
@@ -237,8 +241,11 @@ extension Float16 {
   }
 }
 
+#sourceLocation(file: "../gyb-sources/FloatingPointDifferentiation.swift.gyb", line: 257)
 #endif
+#sourceLocation(file: "../gyb-sources/FloatingPointDifferentiation.swift.gyb", line: 27)
 
+#sourceLocation(file: "../gyb-sources/FloatingPointDifferentiation.swift.gyb", line: 34)
 
 //===----------------------------------------------------------------------===//
 // Protocol conformances
@@ -461,7 +468,9 @@ extension Float {
   }
 }
 
+#sourceLocation(file: "../gyb-sources/FloatingPointDifferentiation.swift.gyb", line: 27)
 
+#sourceLocation(file: "../gyb-sources/FloatingPointDifferentiation.swift.gyb", line: 34)
 
 //===----------------------------------------------------------------------===//
 // Protocol conformances
@@ -684,8 +693,11 @@ extension Double {
   }
 }
 
+#sourceLocation(file: "../gyb-sources/FloatingPointDifferentiation.swift.gyb", line: 27)
 
+#sourceLocation(file: "../gyb-sources/FloatingPointDifferentiation.swift.gyb", line: 29)
 #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+#sourceLocation(file: "../gyb-sources/FloatingPointDifferentiation.swift.gyb", line: 34)
 
 //===----------------------------------------------------------------------===//
 // Protocol conformances
@@ -908,7 +920,9 @@ extension Float80 {
   }
 }
 
+#sourceLocation(file: "../gyb-sources/FloatingPointDifferentiation.swift.gyb", line: 257)
 #endif
+#sourceLocation(file: "../gyb-sources/FloatingPointDifferentiation.swift.gyb", line: 260)
 
 extension FloatingPoint
 where
