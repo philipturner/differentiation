@@ -37,6 +37,10 @@ import _Differentiation
 
 > Note: When officially enabled in release toolchains, the built-in `_Differentiation` module will be renamed to `Differentiation`. If the compiler wants you to use the new module name, this guard could protect your code against deprecation warnings.
 
+## Running Package Tests
+
+To determine whether a release toolchain has certain bug fixes integrated into recent development toolchain, this package includes most AutoDiff compiler crasher tests. These produce errors and warnings in Xcode, which are intentional. The tests are considered successful if they do not crash the compiler.
+
 ## How to Update
 
 To synchronize this package with the code in the [apple/swift](https://github.com/apple/swift) repository, follow these steps:
@@ -46,7 +50,3 @@ To synchronize this package with the code in the [apple/swift](https://github.co
 - Differentiable.swift
 - DifferentiationUtilities.swift
 4. Enter this package's directory in the command line and run `build_gyb.sh`.
-
-## Running Package Tests
-
-To determine whether a release toolchain has certain bug fixes integrated into recent development toolchain, this package includes most AutoDiff compiler crasher tests. These produce errors and warnings in Xcode, which are intentional. The tests are considered successful if they do not crash the compiler.
