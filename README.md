@@ -25,7 +25,7 @@ This package was used in an iOS [sample project](https://github.com/philipturner
 
 ## Compatibility with Development Toolchains
 
-To create differentiation code that compiles with and without Swift release toolchains, optionally depend on this package if compiling with a release toolchain. In addition, use this import guard at the top of your source files:
+To create differentiation code that compiles with and without Swift release toolchains, only depend on this package when compiling with a release toolchain. In addition, use this import guard at the top of your source files:
 
 ```swift
 #if canImport(Differentiation)
@@ -39,7 +39,7 @@ import _Differentiation
 
 ## Running Package Tests
 
-To determine whether a release toolchain has certain bug fixes integrated into recent development toolchain, this package includes most AutoDiff compiler crasher tests. These produce errors and warnings in Xcode, which are intentional. The tests are considered successful if they do not crash the compiler.
+To determine whether a release toolchain has certain bug fixes integrated into the main branch of Swift, this package includes most AutoDiff compiler crasher tests. These produce errors and warnings in Xcode, which are intentional. The tests are considered successful if they do not crash the compiler.
 
 ## How to Update
 
