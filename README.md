@@ -19,9 +19,9 @@ func foo(x: Float) -> Float {
 }
 ```
 
-## Demonstration
+> An example of using this package in Swift code. For an in-depth guide, read the [Differentiable Programming Manifesto](https://github.com/apple/swift/blob/main/docs/DifferentiableProgramming.md).
 
-This package was used in an iOS [sample project](https://github.com/philipturner/differentiation-ios-demo) to find velocity from physics equations.
+For a demonstration, examine the iOS [sample project](https://github.com/philipturner/differentiation-ios-demo). It uses differentiation to find velocity from physics equations. This was the first time differentiation ever ran on iOS, which only supports release toolchains.
 
 ## Compatibility with Development Toolchains
 
@@ -35,11 +35,11 @@ import _Differentiation
 #endif
 ```
 
-> Note: When officially enabled in release toolchains, the built-in `_Differentiation` module will be renamed to `Differentiation`. If the compiler wants you to use the new module name, this guard could protect your code against deprecation warnings.
+When officially enabled in release toolchains, the built-in `_Differentiation` module will be renamed to `Differentiation`. If the compiler wants you to use the new module name, this guard could protect your code against deprecation warnings.
 
 ## Running Package Tests
 
-To determine whether a release toolchain has certain bug fixes integrated into the main branch of Swift, this package includes most AutoDiff compiler crasher tests. These produce errors and warnings in Xcode, which are intentional. The tests are considered successful if they do not crash the compiler.
+To determine whether a release toolchain has certain bug fixes integrated into the main branch of Swift, this package includes most AutoDiff compiler crasher tests. These produce warnings and errors in Xcode when opened as a standalone Swift package. The tests are considered successful if they do not crash the compiler.
 
 ## How to Update
 
@@ -50,3 +50,4 @@ To synchronize this package with the code in the [apple/swift](https://github.co
 - Differentiable.swift
 - DifferentiationUtilities.swift
 4. Enter this package's directory in the command line and run `build_gyb.sh`.
+5. Create a new Swift project depending on your branch and validate that it compiles. Extra points for using the iOS [sample project](https://github.com/philipturner/differentiation-ios-demo) as that validation test.
