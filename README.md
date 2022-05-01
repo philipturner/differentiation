@@ -44,7 +44,7 @@ To determine whether a release toolchain has certain bug fixes integrated into t
 ## How to Update
 
 To synchronize this package with the code in the [apple/swift](https://github.com/apple/swift) repository, follow these steps:
-1. Locate [swift/stdlib/public/Differentiation](https://github.com/apple/swift/tree/main/stdlib/public/Differentiation) in the Swift GitHub repository.
+1. Locate [stdlib/public/Differentiation](https://github.com/apple/swift/tree/main/stdlib/public/Differentiation) in the Swift GitHub repository.
 2. Copy files ending with `.gyb` into "Sources/gyb-sources".
 3. Copy all other Swift files into their counterparts in "Sources/Differentiation", except for the following:
 - Differentiable.swift
