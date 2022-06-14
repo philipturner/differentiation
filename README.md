@@ -49,7 +49,7 @@ import _Differentiation
 #endif
 ```
 
-When officially enabled in release toolchains, the built-in `_Differentiation` module will be renamed to `Differentiation`. If the compiler wants you to use the new module name, the import guard could protect your code against deprecation warnings. This repository will change to accomodate the renamed module, so check the updated usage instructions.
+When officially enabled in release toolchains, the built-in `_Differentiation` module will be renamed to `Differentiation`. The import guard will automatically import the new module name, which will now conflict with the `Differentiation` module exported by this repository. Revisit this README when AutoDiff [makes it through](https://forums.swift.org/t/differentiable-programming-for-gradient-based-machine-learning/42147) Swift Evolution, as the usage instructions will likely change.
 
 ## Running Package Tests
 
