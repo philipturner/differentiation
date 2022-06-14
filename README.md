@@ -26,21 +26,11 @@ For a demonstration, examine the iOS [sample project](https://github.com/philipt
 
 ## Compatibility with Development Toolchains
 
-To create differentiation code that compiles with and without Swift release toolchains, only depend on this package when compiling with a release toolchain. In addition, use this import guard at the top of your source files:
-
-```swift
-#if canImport(Differentiation)
-import Differentiation
-#else
-import _Differentiation
-#endif
-```
-
-When officially enabled in release toolchains, the built-in `_Differentiation` module will be renamed to `Differentiation`. If the compiler wants you to use the new module name, this guard could protect your code against deprecation warnings.
+To create differentiation code that compiles with and without Swift release toolchains, only depend on this package when compiling with a release toolchain. 
 
 ## Warning
 
-If you are using a development toolchain, ensure you DO NOT depend on this package. It only works with release toolchains. Failure to adhere to this warning may cause undefined behavior.
+Only depend on this package when compiling with release toolchains. If you are using a development toolchain, ensure you DO NOT depend on this package. Doing so may cause undefined behavior.
 
 Swift has no built-in way to detect presence of development toolchains - if it does, please contact me immediately! If your project regularly compiles with both release and development toolchains, you may need a complex build system to ensure this conditional dependency. For example, the development toolchains you test might always be of a higher Swift version than the release toolchains. You may hard-code conditional checks for a specific Swift version, but this will break after the next Swift release.
 
@@ -51,6 +41,18 @@ Swift has no built-in way to detect presence of development toolchains - if it d
 // Do not include this Swift package dependency
 #endif
 ```
+
+After sorting out the conditional dependency to [philipturner/differentiation](https://github.com/philipturner/differentiation), use this import guard at the top of your source files:
+
+```swift
+#if canImport(Differentiation)
+import Differentiation
+#else
+import _Differentiation
+#endif
+```
+
+When officially enabled in release toolchains, the built-in `_Differentiation` module will be renamed to `Differentiation`. If the compiler wants you to use the new module name, this guard could protect your code against deprecation warnings.
 
 ## Running Package Tests
 
