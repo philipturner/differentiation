@@ -31,6 +31,7 @@ Only depend on this package when compiling with release toolchains. If you are u
 Swift has no built-in way to detect presence of development toolchains - if it does, please contact me immediately! If your project regularly compiles with both release and development toolchains, you may need a complex build system to implement this conditional dependency. For example, the development toolchains you test might always be of a higher Swift version than the release toolchains. You may hard-code checks for a specific Swift version, but this will break after the next Swift release.
 
 ```swift
+// The following is extremely not future-proof. Proceed at your own risk.
 #if swift(<=5.6.1)
 // Include this Swift package dependency in your Package.swift
 #else
