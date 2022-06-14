@@ -6,6 +6,8 @@ A workaround for enabling differentiation in Swift until the Standard Library of
 
 ## How to Use
 
+Only depend on this package when compiling with a release toolchain. If you are using a development toolchain, ensure you DO NOT depend on this package. Doing so may cause undefined behavior.
+
 ```swift
 import Differentiation
 
