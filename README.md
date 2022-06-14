@@ -49,7 +49,7 @@ import _Differentiation
 #endif
 ```
 
-Wen (or if) AutoDiff [makes it through](https://forums.swift.org/t/differentiable-programming-for-gradient-based-machine-learning/42147) Swift Evolution. and is officially enabled in release toolchains, the built-in `_Differentiation` module will be renamed to `Differentiation`. The new standard library module will conflict with the `Differentiation` module exported by [philipturner/differentiation](https://github.com/philipturner/differentiation). This repository will change significantly to accomodate for the module renaming, so read the updated usage instructions.
+When (or if) AutoDiff [makes it through](https://forums.swift.org/t/differentiable-programming-for-gradient-based-machine-learning/42147) Swift Evolution. and is officially enabled in release toolchains, the built-in `_Differentiation` module will be renamed to `Differentiation`. The new standard library module will conflict with the `Differentiation` module exported by [philipturner/differentiation](https://github.com/philipturner/differentiation). This repository will change significantly to accomodate for the module renaming, so read the updated usage instructions.
 
 ## Running Package Tests
 
