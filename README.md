@@ -26,7 +26,7 @@ For a demonstration, examine the iOS [sample project](https://github.com/philipt
 
 ## Compatibility with Development Toolchains
 
-> Warning: Only depend on this package when compiling with release toolchains. If you are using a development toolchain, ensure you DO NOT depend on this package. Doing so may cause undefined behavior.
+<b>Only depend on this package when compiling with release toolchains. If you are using a development toolchain, ensure you DO NOT depend on this package. Doing so may cause undefined behavior.</b>
 
 Swift has no built-in way to detect presence of development toolchains - if it does, please contact me immediately! If your project regularly compiles with both release and development toolchains, you may need a complex build system to ensure this conditional dependency. For example, the development toolchains you test might always be of a higher Swift version than the release toolchains. You may hard-code conditional checks for a specific Swift version, but this will break after the next Swift release.
 
