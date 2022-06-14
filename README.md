@@ -6,7 +6,7 @@ A workaround for enabling differentiation in Swift until the Standard Library of
 
 ## How to Use
 
-Only depend on this package when compiling with a release toolchain. If you are using a development toolchain, ensure you DO NOT depend on this package. Doing so may cause undefined behavior.
+Only depend on this package when compiling with a release toolchain. If you are using a development toolchain, ensure you DO NOT depend on this package. Doing so may cause undefined behavior. If your project regularly uses both release and development toolchains, you may need a complex build script to set up this conditional dependency, as Swift has no built-in macros for detecting presence of development toolchains.
 
 ```swift
 import Differentiation
