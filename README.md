@@ -49,7 +49,7 @@ import _Differentiation
 #endif
 ```
 
-When officially enabled in release toolchains, the built-in `_Differentiation` module will be renamed to `Differentiation`. If the compiler wants you to use the new module name, the gated import could protect your code against deprecation warnings. This repository will change to accomodate the renamed module, so check the updated usage instructions.
+When officially enabled in release toolchains, the built-in `_Differentiation` module will be renamed to `Differentiation`. If the compiler wants you to use the new module name, the import guard could protect your code against deprecation warnings. This repository will change to accomodate the renamed module, so check the updated usage instructions.
 
 ## Running Package Tests
 
