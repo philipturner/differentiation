@@ -32,9 +32,9 @@ Swift has no built-in way to detect presence of development toolchains - if it d
 
 ```swift
 // The following is extremely not future-proof. Proceed at your own risk.
-#if swift(<=5.6.1) // Is a release toolchain
+#if swift(<=5.6.1)
 // Include this Swift package dependency in your Package.swift
-#else // Is a development toolchain
+#else
 // Do not include this Swift package dependency
 #endif
 ```
