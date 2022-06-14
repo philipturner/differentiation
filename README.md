@@ -40,7 +40,7 @@ When officially enabled in release toolchains, the built-in `_Differentiation` m
 
 ## Warning
 
-If you are using a development toolchain, ensure you DO NOT depend on this package. It has only been tested with toolchains. Failure to adhere to this warning may cause undefined behavior.
+If you are using a development toolchain, ensure you DO NOT depend on this package. It only works with release toolchains. Failure to adhere to this warning may cause undefined behavior.
 
 Swift has no built-in way to detect presence of development toolchains - if it does, please contact me immediately! If your project regularly compiles with both release and development toolchains, you may need a complex build system to ensure this conditional dependency. For example, the development toolchains you test might always be of a higher Swift version than the release toolchains. You may hard-code conditional checks for a specific Swift version, but this will break after the next Swift release.
 
