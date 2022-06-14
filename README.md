@@ -4,9 +4,21 @@ A workaround for enabling differentiation in Swift until the Standard Library of
 
 > Warning: Swift's implementation of differentiation is still experimental. Bug fixes implemented in development toolchains may take months to integrate into release toolchains.
 
-## How to Use
+## Warning
 
 Only depend on this package when compiling with a release toolchain. If you are using a development toolchain, ensure you DO NOT depend on this package. Doing so may cause undefined behavior.
+
+Swift has no built-in way to detect presence of development toolchains - if it does, please contact me immediately! If your project regularly compiles with both release and development toolchains, you may need a complex build system to ensure this conditional dependency. For example, the development toolchains you test might always be of a higher Swift version than the release toolchains. You may hard-code conditional checks for a specific Swift version, but this will break after the next Swift release.
+
+```swift
+#if swift(<=5.6.1)
+// Include this Swift package dependency in your Package.swift
+#else
+// Do not include this Swift package dependency
+#endif
+```
+
+# How to use
 
 ```swift
 import Differentiation
@@ -21,16 +33,6 @@ func foo(x: Float) -> Float {
 }
 ```
 
-
-Swift has no built-in way to detect presence of development toolchains - if it does, please contact me immediately! If your project regularly compiles with both release and development toolchains, you may need a complex build system to ensure this conditional dependency. For example, the development toolchains you test might always be of a higher Swift version than the release toolchains. You may hard-code conditional checks for a specific Swift version, but this will break after the next Swift release.
-
-```swift
-#if swift(<=5.6.1)
-// Include this Swift package dependency in your Package.swift
-#else
-// Do not include this Swift package dependency
-#endif
-```
 
 > An example of using this package in Swift code. For an in-depth guide, read the [Differentiable Programming Manifesto](https://github.com/apple/swift/blob/main/docs/DifferentiableProgramming.md).
 
