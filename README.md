@@ -18,7 +18,7 @@ Swift has no built-in way to detect presence of development toolchains - if it d
 #endif
 ```
 
-# How to use
+## How to use
 
 ```swift
 import Differentiation
